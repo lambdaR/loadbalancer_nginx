@@ -1,8 +1,8 @@
 FROM nginx:1.15.8
 
 # copy certificate and key
-COPY $(pwd)/mycert_123.pem /root/mycert_123.pem
-COPY $(pwd)/mykey_123.pem /root/mykey_123.pem
+COPY ./mycert_123.pem /root/mycert_123.pem
+COPY ./mykey_123.pem /root/mykey_123.pem
 
 # Applying new config file
 RUN rm /etc/nginx/conf.d/*
