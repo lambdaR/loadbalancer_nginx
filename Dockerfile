@@ -5,8 +5,8 @@ COPY ./mycert_123.pem /root/mycert_123.pem
 COPY ./mykey_123.pem /root/mykey_123.pem
 
 # Applying new config file
-RUN rm /etc/nginx/conf.d/*
-COPY myconfig.conf /etc/nginx/conf.d/
+#RUN rm /etc/nginx/conf.d/*
+#COPY myconfig.conf /etc/nginx/conf.d/
 
 # update apt-get and install curl
 RUN apt-get update && apt-get install -y curl
