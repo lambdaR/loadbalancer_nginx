@@ -7,9 +7,12 @@ COPY ./mykey_123.pem /root/mykey_123.pem
 # Delete all config files in conf.d folder
 RUN rm /etc/nginx/conf.d/*
 
+# Copy file to conf.d folder
+COPY myconfig.conf /etc/nginx/conf.d/
+
 # Copy two config files to root
-COPY myconfig.conf /etc/nginx
-COPY myconfig_swarm.conf /etc/nginx
+#COPY myconfig_classic.conf /etc/nginx
+#COPY myconfig_swarm.conf /etc/nginx
 
 # update apt-get and install curl
 RUN apt-get update && apt-get install -y curl
