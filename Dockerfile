@@ -4,9 +4,12 @@ FROM nginx:1.15.8
 COPY ./mycert_123.pem /root/mycert_123.pem
 COPY ./mykey_123.pem /root/mykey_123.pem
 
-# Applying new config file
-#RUN rm /etc/nginx/conf.d/*
-#COPY myconfig.conf /etc/nginx/conf.d/
+# Delete all config files in conf.d folder
+RUN rm /etc/nginx/conf.d/*
+
+# Copy two config files to root
+COPY myconfig.conf /etc/nginx
+COPY myconfig_swarm.conf /etc/nginx
 
 # update apt-get and install curl
 RUN apt-get update && apt-get install -y curl
